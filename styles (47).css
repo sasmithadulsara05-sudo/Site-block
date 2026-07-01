@@ -1,0 +1,296 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    background-color: #f2f5f9;
+    color: #1a2a40;
+    padding-bottom: 70px; /* Space for bottom nav */
+}
+
+/* Header */
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #ffffff;
+    height: 60px; /* ලෝගෝ එක නැති වුණත් උස රඳවා ගැනීමට */
+}
+.logo {
+    color: #D49A00; /* තද කහ වර්ණය */
+    font-size: 22px;
+    font-style: italic;
+    font-weight: bold;
+}
+.search-icon {
+    font-size: 20px;
+    color: #4a5a73;
+    margin-left: auto; /* අයිකනය දකුණට ගෙන යාමට */
+}
+
+/* Auth Buttons */
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+    padding: 10px 20px;
+    background-color: #ffffff;
+}
+.btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+.btn-login {
+    background-color: #D49A00; /* තද කහ වර්ණය */
+}
+.btn-register {
+    background-color: #4eb966;
+}
+
+/* Main Nav */
+.main-nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: #ffffff;
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e5ec;
+}
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #7b8a9e;
+    font-size: 12px;
+    gap: 5px;
+    cursor: pointer;
+}
+.nav-item i { font-size: 18px; }
+.nav-item.active {
+    color: #D49A00; /* තද කහ වර්ණය */
+    border-bottom: 2px solid #D49A00;
+    padding-bottom: 5px;
+}
+
+/* Scroll Containers (Horizontal Scroll) */
+.scroll-container {
+    display: flex;
+    overflow-x: auto;
+    padding: 15px 20px;
+    gap: 15px;
+    /* Hide scrollbar */
+    scrollbar-width: none;
+}
+.scroll-container::-webkit-scrollbar { display: none; }
+
+/* Games */
+.game-item {
+    display: flex; flex-direction: column; align-items: center; min-width: 70px;
+}
+.game-circle {
+    width: 70px; height: 70px;
+    border-radius: 50%;
+    margin-bottom: 8px;
+    display: flex; align-items: center; justify-content: center;
+}
+.game-item span { font-size: 12px; text-align: center; font-weight: 500;}
+
+/* Top Events */
+.top-events { padding: 15px 20px; }
+.section-title { color: #152744; margin-bottom: 15px; font-size: 18px; }
+.event-card {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+}
+.event-icon {
+    padding: 15px;
+    font-size: 24px;
+}
+.event-name {
+    flex: 1;
+    font-weight: bold;
+    color: #1a2a40;
+}
+.event-graphic {
+    width: 100px;
+    height: 70px;
+    border-radius: 50% 0 0 50%;
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+    z-index: 100;
+}
+.b-nav-item {
+    display: flex; flex-direction: column; align-items: center;
+    color: #7b8a9e; font-size: 11px; gap: 4px;
+    cursor: pointer;
+}
+.b-nav-item.active { color: #D49A00; /* තද කහ වර්ණය */ }
+.b-nav-item i { font-size: 18px; }
+.central-btn { position: relative; top: -15px; }
+.slip-btn {
+    width: 50px; height: 50px;
+    background-color: #D49A00; /* තද කහ වර්ණය */
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 4px;
+    color: white;
+    box-shadow: 0 4px 8px rgba(212, 154, 0, 0.4);
+}
+
+/* =========================================
+   Registration Page Styles (අලුත් කොටස)
+   ========================================= */
+
+.register-page {
+    background-color: #f0f4f8; 
+    padding-bottom: 20px;
+}
+
+.back-nav {
+    padding: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #2c3e50;
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* Sports Illustration Placeholder */
+.sports-illustration {
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #dbe4ed, #f0f4f8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sports-illustration i {
+    position: absolute;
+}
+
+.main-ball {
+    font-size: 200px;
+    color: #4a5a73;
+    left: -20px;
+    top: 50px;
+}
+
+.sub-ball-1 {
+    font-size: 120px;
+    color: #e67e22; /* Orange */
+    right: 20px;
+    top: 80px;
+}
+
+.sub-ball-2 {
+    font-size: 80px;
+    color: #7cb342; /* Light Green */
+    bottom: 20px;
+    z-index: 5;
+}
+
+/* Container */
+.registration-container {
+    padding: 20px;
+    margin-top: -20px;
+    position: relative;
+    z-index: 10;
+}
+
+.page-title {
+    color: #0b2e59;
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+/* Option Cards */
+.reg-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.reg-card {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 15px 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: transform 0.2s;
+}
+
+.reg-card:active {
+    transform: scale(0.98);
+}
+
+.reg-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #eaf1fa;
+    color: #3f7de0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    margin-right: 15px;
+}
+
+.reg-text {
+    color: #0b2e59;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Login Link */
+.login-prompt {
+    text-align: center;
+    margin-top: 40px;
+    color: #6c7a8f;
+    font-size: 14px;
+}
+
+.login-prompt a {
+    color: #3f7de0;
+    text-decoration: none;
+    font-weight: bold;
+}

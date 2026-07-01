@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App UI Clone - Yellow Theme</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="top-header">
+        <div class="logo"></div>
+        <i class="fas fa-search search-icon"></i>
+    </header>
+
+    <div class="auth-buttons">
+        <button class="btn btn-login">Log in</button>
+        <button class="btn btn-register" onclick="window.location.href='register.html'">Registration</button>
+    </div>
+
+    <nav class="main-nav">
+        <div class="nav-item active">
+            <i class="fas fa-star"></i>
+            <span>Top</span>
+        </div>
+        <div class="nav-item">
+            <i class="fas fa-gamepad"></i>
+            <span>Esports</span>
+        </div>
+        <div class="nav-item">
+            <i class="fas fa-cube"></i>
+            <span>1xGames</span>
+        </div>
+    </nav>
+
+    <div class="scroll-container categories">
+        
+    </div>
+
+    <div class="scroll-container banners">
+        
+    </div>
+
+    <nav class="bottom-nav">
+        <div class="b-nav-item active">
+            <i class="fas fa-fire"></i>
+            <span>Popular</span>
+        </div>
+        <div class="b-nav-item">
+            <i class="fas fa-star"></i>
+            <span>Favorites</span>
+        </div>
+        <div class="b-nav-item central-btn">
+            <div class="slip-btn">
+                <i class="fas fa-ticket-alt"></i>
+            </div>
+            <span>Bet slip</span>
+        </div>
+        <div class="b-nav-item">
+            <i class="fas fa-clock"></i>
+            <span>History</span>
+        </div>
+        <div class="b-nav-item">
+            <i class="fas fa-th-large"></i>
+            <span>Menu</span>
+        </div>
+    </nav>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>

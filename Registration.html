@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Form View Styles */
+        #form-view {
+            display: none; /* මුලින්ම Form එක සඟවා තබයි */
+            background-color: #f0f4f8;
+            min-height: 100vh;
+            padding-bottom: 80px;
+        }
+
+        .form-header {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+
+        .form-back-btn {
+            font-size: 20px;
+            color: #4a5a73;
+            margin-right: 20px;
+            cursor: pointer;
+        }
+
+        .form-title-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            margin-right: 40px; /* මැදට ගැනීමට */
+        }
+
+        .form-title-group h2 {
+            color: #2b70d4;
+            font-size: 20px;
+            margin: 0;
+        }
+
+        .form-subtitle {
+            font-size: 12px;
+            color: #6c7a8f;
+        }
+
+        .form-card {
+            background-color: #ffffff;
+            border-radius: 15px;
+            margin: 0 20px;
+            padding: 10px 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            border-bottom: 1px solid #e0e5ec;
+            padding: 15px 0;
+        }
+
+        .input-group:last-child {
+            border-bottom: none;
+        }
+
+        .input-group label {
+            font-size: 12px;
+            color: #6c7a8f;
+            margin-bottom: 5px;
+        }
+
+        .input-group select, .input-group input {
+            border: none;
+            outline: none;
+            font-size: 16px;
+            color: #1a2a40;
+            background: transparent;
+            width: 100%;
+        }
+
+        /* විකල්ප (Optional) ලේබල් එක සඳහා */
+        .input-group input::placeholder {
+            color: #6c7a8f;
+        }
+
+        .agreements {
+            margin: 25px 20px;
+        }
+
+        .agreement-item {
+            display: flex;
+            align-items: center;
+            color: #3f7de0;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .agreement-item i {
+            margin-right: 15px;
+            font-size: 18px;
+            color: #5b92e5;
+        }
+
+        .checkbox-item {
+            color: #1a2a40;
+            align-items: flex-start;
+        }
+
+        .checkbox-item input {
+            margin-top: 3px;
+            margin-right: 15px;
+            width: 18px;
+            height: 18px;
+        }
+
+        .checkbox-item label {
+            line-height: 1.4;
+        }
+
+        .register-btn-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 15px 20px;
+            background-color: #f0f4f8;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            background-color: #4eb966;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="register-page">
+
+    <div id="selection-view">
+        <div class="back-nav">
+            <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i></a>
+        </div>
+
+        <div class="sports-illustration">
+            <i class="fas fa-futbol main-ball"></i>
+            <i class="fas fa-basketball-ball sub-ball-1"></i>
+            <i class="fas fa-baseball-ball sub-ball-2"></i>
+        </div>
+
+        <div class="registration-container">
+            <h1 class="page-title">Registration</h1>
+
+            <div class="reg-options">
+                <a href="#" class="reg-card" onclick="openForm('one-click')">
+                    <div class="reg-icon"><i class="fas fa-bolt"></i></div>
+                    <span class="reg-text">One-click</span>
+                </a>
+
+                <a href="#" class="reg-card" onclick="openForm('email')">
+                    <div class="reg-icon"><i class="fas fa-envelope"></i></div>
+                    <span class="reg-text">By email</span>
+                </a>
+            </div>
+
+            <div class="login-prompt">
+                Already have an account? <a href="#">Log in</a>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="form-view">
+        <div class="form-header">
+            <i class="fas fa-arrow-left form-back-btn" onclick="goBackToSelection()"></i>
+            <div class="form-title-group">
+                <h2>Registration</h2>
+                <span class="form-subtitle" id="dynamic-subtitle">One-click</span>
+            </div>
+        </div>
+
+        <div class="form-card">
+            <div class="input-group">
+                <label>Country *</label>
+                <select>
+                    <option>Sri Lanka</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>Currency *</label>
+                <select>
+                    <option>Sri Lankan rupee (LKR)</option>
+                </select>
+            </div>
+
+            <div class="input-group" id="email-field" style="display: none;">
+                <label>Email *</label>
+                <input type="email" placeholder="Enter your email">
+            </div>
+
+            <div class="input-group">
+                <label>Bonus</label>
+                <select>
+                    <option>Bonus for sports</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <input type="text" placeholder="Promo code (optional)">
+            </div>
+        </div>
+
+        <div class="agreements">
+            <div class="agreement-item">
+                <i class="fas fa-file-alt"></i> Terms and Conditions
+            </div>
+            <div class="agreement-item">
+                <i class="fas fa-shield-alt"></i> Privacy Policy
+            </div>
+            <div class="agreement-item checkbox-item">
+                <input type="checkbox" id="age-check">
+                <label for="age-check">I am over 18 years of age and I confirm that I have read and agree to the company's terms and conditions and privacy policy.</label>
+            </div>
+        </div>
+
+        <div class="register-btn-container">
+            <button class="btn-submit">Register</button>
+        </div>
+    </div>
+
+    <script>
+        function openForm(type) {
+            // පළමු කොටස සඟවා ෆෝරමය පෙන්වීම
+            document.getElementById('selection-view').style.display = 'none';
+            document.getElementById('form-view').style.display = 'block';
+
+            // තේරීම අනුව Email කොටස සහ මාතෘකාව වෙනස් කිරීම
+            if(type === 'one-click') {
+                document.getElementById('dynamic-subtitle').innerText = 'One-click';
+                document.getElementById('email-field').style.display = 'none';
+            } else if (type === 'email') {
+                document.getElementById('dynamic-subtitle').innerText = 'By email';
+                document.getElementById('email-field').style.display = 'flex';
+            }
+        }
+
+        function goBackToSelection() {
+            // ආපසු යාම
+            document.getElementById('form-view').style.display = 'none';
+            document.getElementById('selection-view').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
